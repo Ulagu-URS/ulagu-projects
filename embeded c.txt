@@ -1,0 +1,76 @@
+#include <Wire.h>
+#include <Adafruit_MLX90614.h>
+Adafruit_MLX90614 mlx = Adafruit_MLX90614();
+#include<LiquidCrystal.h>
+LiquidCrystal lcd(8,9,4,5,6,7);
+#define DEBUG true
+int st1=0;
+int st2=0;
+int st3=0;
+int st4=0;
+// WIFI SHIELD DECLARATION
+String ssid = "\"wifi002\"";
+String pass = "\"12345678\"";
+String tcp = "\"TCP\"";
+String remoteip = "\"iotproject21-22.000webhostapp.com\"";
+String portnum = "80";
+int id=0;
+int c=0;
+String m="";
+int flg=0;
+int rs=0;
+45
+String datac="";
+int id2=0;
+String data="2600A3DEDD86";
+String data2="2600A439E45F";
+String data3="2600A412F969";
+String data4="0800A09AF4C6";
+int c1,c2,c3,c4,c5,c6,c7,c8,c9,c10=0;
+int v1,v2,v3,v4=50;
+int tflg=0;
+char ch;
+char str[70];
+String gpsString="";
+char *test="$GPGGA";
+String latitude="No Range ";
+String longitude="No Range ";
+float latr=0;
+float lonr=0;
+int i;
+boolean gps_status=0;
+String sta="";
+int ir1=A1;
+int ir2=A2;
+int count=0;
+void openclose()
+{
+digitalWrite(10,HIGH);
+digitalWrite(11,LOW);
+46
+delay(2000);
+digitalWrite(10,LOW);
+digitalWrite(11,LOW);
+delay(3000);
+digitalWrite(10,LOW);
+digitalWrite(11,HIGH);
+delay(2000);
+digitalWrite(11,LOW);
+digitalWrite(10,LOW);
+delay(1000);
+}
+void counting()
+{
+lcd.setCursor(15,1);
+lcd.print("1");
+while(!digitalRead(ir1));
+if(digitalRead(ir1))
+{
+lcd.setCursor(15,1);
+lcd.print("2");
+while(!digitalRead(ir2));
+count+=1;
+lcd.setCursor(15,1);
+lcd.print("3");
+}
+}
